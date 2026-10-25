@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Escape Room - Final</title>
+    
+    <!-- Librería de Confeti (Canvas Confetti) -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
     <style>
         body { 
             background: #1a1a1a; 
@@ -24,12 +28,6 @@
             padding: 20px;
         }
 
-        input, button { 
-            padding: 10px; 
-            font-size: 16px; 
-            margin: 10px; 
-        } 
-
         .flex {
             display: flex; 
             flex-direction: column; 
@@ -42,7 +40,7 @@
             font-family: 'Arial', 'Helvetica', sans-serif;
             font-weight: bold; 
             color: #eae1d4; 
-            font-size: clamp(2.2rem, 5vw, 3.5rem); /* Se adapta dinámicamente al tamaño de la pantalla */
+            font-size: clamp(2.2rem, 5vw, 3.5rem); 
             line-height: 1.1; 
             text-align: center; 
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); 
@@ -103,5 +101,17 @@
             <span class="firma-autor">— Dr. René Favaloro</span>
         </p>
     </div>
+
+    <!-- Script para disparar el confeti al cargar -->
+    <script>
+        window.onload = function() {
+            // Configuración del efecto de papelitos
+            confetti({
+                particleCount: 120, // Cantidad de papelitos
+                spread: 90,         // Qué tan abiertos se dispersan
+                origin: { y: 0.6 }  // Altura desde donde explotan (0 es arriba, 1 abajo)
+            });
+        };
+    </script>
 </body>
 </html>
