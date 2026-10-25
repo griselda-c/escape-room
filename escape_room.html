@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escape Room - Final</title>
+    <style>
+        /* Configuramos el fondo responsive total ocupando el 100% de la pantalla */
+        body { 
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a; 
+            background-image: url('fondo1.png'); 
+            background-size: cover; 
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            
+            /* Centramos todo el contenido vertical y horizontalmente */
+            display: flex; 
+            justify-content: center; 
+            align-items: center;
+            font-family: 'Arial', 'Helvetica', sans-serif; 
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        /* Contenedor flexible principal */
+        .flex {
+            display: flex; 
+            flex-direction: column;
+            justify-content: center; 
+            align-items: center;
+            width: 100%;
+            max-width: 700px;
+            padding: 20px;
+        }
+
+        /* Título impactante al estilo Genially */
+        h1 {
+            font-family: 'Impact', 'Arial Black', sans-serif;
+            color: #ffffff;
+            font-size: 3rem;
+            margin: 0 0 15px 0;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9);
+        }
+
+        /* Párrafo de instrucciones en imprenta limpia para los niños */
+        p {
+            color: #eae1d4; /* Tono crema suave consistente con las otras pantallas */
+            font-size: 1.4rem; 
+            font-weight: bold; 
+            margin: 0 0 30px 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+        }
+
+        /* Caja de entrada del código estilizada secreta */
+        input[type="password"] {
+            padding: 12px;
+            font-size: 2rem; /* Asteriscos grandes y legibles */
+            letter-spacing: 10px; /* Separa los asteriscos para que se vea genial */
+            text-align: center;
+            width: 180px;
+            border: 2px solid #555;
+            background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro semitransparente */
+            color: #2ecc71; /* Texto verde estilo terminal espía */
+            border-radius: 8px;
+            outline: none;
+            margin-bottom: 10px;
+            box-shadow: inset 0px 2px 5px rgba(0,0,0,0.8), 0px 4px 10px rgba(0,0,0,0.5);
+            transition: border-color 0.3s ease;
+        }
+
+        /* Iluminación verde cuando los chicos hacen clic en el input */
+        input[type="password"]:focus {
+            border-color: #2ecc71;
+        }
+
+        /* Botón de acción moderno */
+        button { 
+            background-color: #27ae60; /* Verde "desactivar sistema" */
+            color: #ffffff;
+            border: none;
+            padding: 14px 40px; 
+            font-size: 1.2rem; 
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 25px; /* Bordes redondeados estilo Genially */
+            cursor: pointer;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.6);
+            transition: all 0.3s ease;
+        } 
+
+        /* Animación interactiva del botón al pasar el cursor */
+        button:hover {
+            background-color: #2ecc71; /* Se vuelve un verde más brillante */
+            transform: scale(1.05); /* Crece sutilmente */
+            box-shadow: 0px 7px 20px rgba(0, 0, 0, 0.8);
+        }
+    </style>
+</head>
+<body>
+   <div class="flex">
+        <h1>¡Última fase del Escape Room!</h1>
+        <p>Introduce el código de 4 dígitos para desactivar el sistema:</p>
+        
+        <input type="password" id="codigo" placeholder="****" maxlength="4">
+        <button onclick="verificar()">Desactivar</button>
+        
+        <p id="mensaje"></p>
+   </div>
+
+    <script>
+        function verificar() {
+            const claveCorrecta = "1234"; // Cambia esto por tu clave
+            const ingreso = document.getElementById("codigo").value;
+            document.getElementById("codigo").value = "";
+
+            if (ingreso === claveCorrecta) {
+                window.location.href = "correcto.html";
+            } else {
+                window.location.href = 'error.html';
+            }
+        }
+    </script>
+</body>
+</html>
